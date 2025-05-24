@@ -1,10 +1,21 @@
 {
   "User": [
-  
     {
       "id": "ac54",
       "username": "ankit chaurasiya",
       "email": "ankit@123.com",
+      "password": "123456"
+    },
+    {
+      "id": "55b3",
+      "username": "lovekushgupta",
+      "email": "love123@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "7022",
+      "username": "123",
+      "email": "lovekush123@gmail.com",
       "password": "123456"
     }
   ]

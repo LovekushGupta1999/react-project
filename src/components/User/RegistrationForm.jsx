@@ -34,6 +34,11 @@ const RegistrationForm = () => {
   const validate = () => {
     let tempErrors = {};
     if (!formData.username) tempErrors.username = 'Username is required';
+    uname=formData.username;
+    for (i in uname){
+        if(typeid(uname[i]).name()!='C')
+        tempErrors.username ='number is not allowed in username'
+    }
     if (!formData.email) {
       tempErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -63,7 +68,7 @@ const RegistrationForm = () => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="registration-form">
-        <h2>Create Account</h2>
+        <h2>SIGN UP</h2>
 
         <div className="form-group">
           <label>Username</label>
