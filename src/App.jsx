@@ -13,6 +13,7 @@ import Footer from "./components/Footer/Footer";
 import Popup from "./components/Popup/Popup";
 import RegistrationForm from "./components/User/RegistrationForm";
 import LoginForm from "./components/User/LogInForm";
+import AllProducts from "./components/AllProducts/AllProducts";
 
 
 const App = () => {
@@ -40,6 +41,10 @@ const App = () => {
         </Routes>
       <Hero handleOrderPopup={handleOrderPopup} />
       <Products />
+       <Routes>
+          <Route path="/AllProducts" element={<AllProducts/>} />
+    
+        </Routes> 
       <TopProducts handleOrderPopup={handleOrderPopup} />
       <Banner />
       <Subscribe />

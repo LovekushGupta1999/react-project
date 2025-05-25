@@ -9,41 +9,63 @@ const FilterSidebar = ({ filters, setFilters }) => {
         [name]: checked ? [...prev[name], value] : prev[name].filter(v => v !== value),
       }));
     } else {
-      setFilters(prev => ({ ...prev, [name]: value }));
+      setFilters(prev => ({ ...prev, [name]: Number(value) }));
     }
   };
 
   return (
-    <div className="sidebar">
-      <h3>Filter</h3>
-      <div>
+    <div className="p-3 border rounded bg-light">
+      <h5>Filters</h5>
+
+      {/* Gender */}
+      <div className="mb-3">
         <strong>Gender</strong><br />
-        <input type="checkbox" name="gender" value="Men" onChange={handleChange} /> Men<br />
-        <input type="checkbox" name="gender" value="Women" onChange={handleChange} /> Women
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" name="gender" value="Men" onChange={handleChange} />
+          <label className="form-check-label">Men</label>
+        </div>
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" name="gender" value="Women" onChange={handleChange} />
+          <label className="form-check-label">Women</label>
+        </div>
       </div>
-      <div>
+
+      {/* Category */}
+      <div className="mb-3">
         <strong>Category</strong><br />
-        <input type="checkbox" name="category" value="Shoes" onChange={handleChange} /> Shoes<br />
-        <input type="checkbox" name="category" value="Clothing" onChange={handleChange} /> Clothing
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" name="category" value="Shoes" onChange={handleChange} />
+          <label className="form-check-label">Shoes</label>
+        </div>
+        <div className="form-check">
+          <input className="form-check-input" type="checkbox" name="category" value="Clothing" onChange={handleChange} />
+          <label className="form-check-label">Clothing</label>
+        </div>
       </div>
-      <div>
+
+      {/* Brand */}
+      <div className="mb-3">
         <strong>Brand</strong><br />
-        <input type="checkbox" name="brand" value="Nike" onChange={handleChange} /> Nike<br />
-        <input type="checkbox" name="brand" value="Adidas" onChange={handleChange} /> Adidas<br />
-        <input type="checkbox" name="brand" value="Puma" onChange={handleChange} /> Puma<br />
-        <input type="checkbox" name="brand" value="Under Armour" onChange={handleChange} /> Under Armour
+        {['Nike', 'Adidas', 'Puma', 'Under Armour'].map((brand) => (
+          <div className="form-check" key={brand}>
+            <input className="form-check-input" type="checkbox" name="brand" value={brand} onChange={handleChange} />
+            <label className="form-check-label">{brand}</label>
+          </div>
+        ))}
       </div>
-      <div>
-        <strong>Max Price</strong><br />
+
+      {/* Price */}
+      <div className="mb-3">
+        <strong>Max Price: ${filters.price}</strong>
         <input
           type="range"
+          className="form-range"
           name="price"
           min="0"
           max="200"
           value={filters.price}
           onChange={handleChange}
         />
-        <span> ${filters.price}</span>
       </div>
     </div>
   );

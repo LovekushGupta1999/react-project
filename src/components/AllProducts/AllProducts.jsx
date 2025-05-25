@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-import './styles.css';
 import productsData from './productsData';
 import FilterSidebar from './FilterSidebar';
 import ProductList from './ProductList';
@@ -24,9 +22,15 @@ function AllProducts() {
   };
 
   return (
-    <div className="container">
-      <FilterSidebar filters={filters} setFilters={setFilters} />
-      <ProductList products={filterProducts(productsData)} />
+    <div className="container my-4">
+      <div className="row">
+        <div className="col-md-3 mb-4">
+          <FilterSidebar filters={filters} setFilters={setFilters} />
+        </div>
+        <div className="col-md-9">
+          <ProductList products={filterProducts(productsData)} />
+        </div>
+      </div>
     </div>
   );
 }
